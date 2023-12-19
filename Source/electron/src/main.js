@@ -5,11 +5,12 @@ const path = require('path');
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
+const port = 8181
 
 const { spawn } = require('node:child_process');
 const startDjangoServer = () => {
 
-  const djangoBackend = spawn(path.join(process.resourcesPath, 'manage.exe'), ['runserver', '8181', '--noreload']);
+  const djangoBackend = spawn(path.join(process.resourcesPath, 'manage.exe'), ['runserver', port, '--noreload']);
 
   app.on('before-quit', function () {
     djangoBackend.kill();
@@ -38,8 +39,8 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     show: false,
-    center:true,
-    autoHideMenuBar:true,
+    center: true,
+    autoHideMenuBar: true,
     width: 800,
     height: 600,
     webPreferences: {
@@ -51,7 +52,7 @@ const createWindow = () => {
 
   const options = {
     host: '127.0.0.1',
-    port: 1408,
+    port: port,
     path: '/',
     method: 'GET'
   };
@@ -61,7 +62,7 @@ const createWindow = () => {
       // console.log('statusCode:', response.statusCode);
       // console.log('headers:', response.headers);
 
-      mainWindow.loadURL('http://127.0.0.1:1408');
+      mainWindow.loadURL('http://127.0.0.1:' + port);
       mainWindow.once('ready-to-show', function () {
         splashWindow.close();
         mainWindow.show();
