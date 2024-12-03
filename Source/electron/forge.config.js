@@ -33,4 +33,17 @@ module.exports = {
       config: {},
     },
   ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        authToken:'',
+        repository: {
+          owner: 'ademkocamaz',
+          name: 'ilkServis'
+        },
+        draft: true,
+      }
+    }
+  ]
 };

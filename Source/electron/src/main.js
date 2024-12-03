@@ -1,3 +1,4 @@
+const { updateElectronApp } = require('update-electron-app');
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
@@ -5,7 +6,7 @@ const path = require('path');
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
-const port = 8181
+const port = 11408
 
 const { spawn } = require('node:child_process');
 const startDjangoServer = () => {
@@ -33,6 +34,7 @@ const createWindow = () => {
   splashWindow.loadFile(path.join(__dirname, 'splash.html'));
   splashWindow.once('ready-to-show', function () {
     splashWindow.show();
+    updateElectronApp();
     startDjangoServer();
   });
 
