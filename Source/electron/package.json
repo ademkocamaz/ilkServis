@@ -1,7 +1,7 @@
 {
   "name": "ilkservis",
   "productName": "ilkservis",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Ücretsiz Teknik Servis Takip",
   "main": "src/main.js",
   "scripts": {
