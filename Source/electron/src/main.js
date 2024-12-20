@@ -1,8 +1,6 @@
 const { updateElectronApp } = require('update-electron-app');
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, shell } = require('electron');
 const path = require('path');
-const { shell } = require('electron')
-
 
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -14,7 +12,7 @@ const port = 11408
 const { spawn } = require('node:child_process');
 const startDjangoServer = () => {
 
-  const djangoBackend = spawn(path.join(process.resourcesPath, 'manage.exe'), ['runserver', port, '--noreload']);
+  const djangoBackend = spawn(path.join(process.resourcesPath, 'manage.exe'), ['runserver', '0.0.0.0:' + port, '--noreload']);
 
   app.on('before-quit', function () {
     djangoBackend.kill();
