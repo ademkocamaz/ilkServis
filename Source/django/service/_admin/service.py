@@ -2,6 +2,7 @@ from django.contrib import admin
 from service._model.service import Service
 from service._admin.entity import EntityInline
 from django_object_actions import DjangoObjectActions, action
+from service._model.entity import Entity
 
 
 @admin.register(Service)
@@ -20,9 +21,15 @@ class ServiceAdmin(DjangoObjectActions, admin.ModelAdmin):
         EntityInline,
     ]
 
-    @action
+    """ @action(label="Yazdır", description="Seçili kaydı yazdırır.")
     def print(self, request, obj):
-        pass
+        service = obj
+        entities = Entity.objects.filter(service=service)
+        processes=[]
+        for entity in entities:
+            processes.append() 
+    change_actions = ("print",)
+    # changelist_actions = ('print', ) """
 
     def save_model(self, request, obj, form, change):
         """
@@ -30,3 +37,5 @@ class ServiceAdmin(DjangoObjectActions, admin.ModelAdmin):
         """
         obj.user = request.user
         obj.save()
+
+    

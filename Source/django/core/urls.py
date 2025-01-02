@@ -14,12 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.shortcuts import redirect
 from django.urls import path, include
+from baton.models import BatonTheme
 
 urlpatterns = [
-    path('', lambda request: redirect('admin/', permanent=True)),
-    path('admin/', admin.site.urls),
-    path('baton/', include('baton.urls')),
+    path("", lambda request: redirect("admin/", permanent=True)),
+    path("admin/", admin.site.urls),
+    path("baton/", include("baton.urls")),
 ]
+
+
+admin.site.unregister(BatonTheme)
+admin.site.site_url = None

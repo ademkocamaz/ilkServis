@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ubnikb=-j+e6@wk%#hf45@4k6ao1^-s9lt%-zsmw85v8zf1rdd'
+SECRET_KEY = "django-insecure-ubnikb=-j+e6@wk%#hf45@4k6ao1^-s9lt%-zsmw85v8zf1rdd"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,56 +31,58 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'baton',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_object_actions',
-    'service',
-    'baton.autodiscover',
+    "baton",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django_object_actions",
+    "service",
+    "baton.autodiscover",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'core.urls'
+ROOT_URLCONF = "core.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = "core.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+from os import path, getenv
 
+db_path = path.join(getenv("LOCALAPPDATA"), "ilkservis")
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": path.join(db_path, "db.sqlite3"),
     }
 }
 
@@ -90,16 +92,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -107,9 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'tr-TR'
+LANGUAGE_CODE = "tr-TR"
 
-TIME_ZONE = 'Europe/Istanbul'
+TIME_ZONE = "Europe/Istanbul"
 
 USE_I18N = True
 
@@ -119,23 +121,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 BATON = {
-    'SITE_HEADER': 'ilkServis',
-    'SITE_TITLE': 'ilkServis Yönetim Paneli',
-    'INDEX_TITLE': 'ilkServis - Teknik Servis Takibine, Hoşgeldiniz.',
+    "SITE_HEADER": "ilkServis",
+    "SITE_TITLE": "ilkServis Yönetim Paneli",
+    "INDEX_TITLE": "ilkServis - Teknik Servis Takibine, Hoşgeldiniz.",
     # 'LOGIN_SPLASH': '/static/login-splash.jpg',
-    'GRAVATAR_ENABLED': False,
-    'SUPPORT_HREF': 'https://www.ilkadam.com.tr',
-    'COPYRIGHT': '©2023 İLKADAM YAZILIM VE BİLİŞİM TEKNOLOJİLERİ',
-    'POWERED_BY': '<a href="https://ilkadam.com.tr">www.ilkadam.com.tr</a>',
+    "GRAVATAR_ENABLED": False,
+    "SUPPORT_HREF": "https://www.ilkadam.com.tr",
+    "COPYRIGHT": "©2023 İLKADAM YAZILIM VE BİLİŞİM TEKNOLOJİLERİ",
+    "POWERED_BY": '<a href="https://ilkadam.com.tr">www.ilkadam.com.tr</a>',
     # 'CHANGELIST_FILTERS_IN_MODAL': True,
     # 'CHANGELIST_FILTERS_ALWAYS_OPEN': False,
     # 'CHANGELIST_FILTERS_FORM': True,
 }
+
+DJANGO_SUPERUSER_USERNAME="ilkadam"
+DJANGO_SUPERUSER_PASSWORD="ilkadam"
+DJANGO_SUPERUSER_EMAIL="info@ilkadam.com.tr"
