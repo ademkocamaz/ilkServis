@@ -1,10 +1,11 @@
 from django.contrib import admin
 from service._model.entity import Entity
 from service._admin.process import ProcessInline
+from nested_admin.nested import NestedModelAdmin, NestedStackedInline
 
 
 @admin.register(Entity)
-class EntityAdmin(admin.ModelAdmin):
+class EntityAdmin(NestedModelAdmin):
     list_display = [field.name for field in Entity._meta.fields]
     list_display_links = [field.name for field in Entity._meta.fields]
     search_fields = [field.name for field in Entity._meta.fields]
@@ -26,8 +27,11 @@ class EntityAdmin(admin.ModelAdmin):
         obj.save()
 
 
-class EntityInline(admin.StackedInline):
+class EntityInline(NestedStackedInline):
     model = Entity
     extra = 0
     max_num = 100
     classes = ("collapse-entry",)
+    inlines = [
+        ProcessInline,
+    ]

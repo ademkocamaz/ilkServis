@@ -17,13 +17,14 @@ Including another URLconf
 
 from django.contrib import admin
 from django.shortcuts import redirect
-from django.urls import path, include
+from django.urls import path, include, re_path
 from baton.models import BatonTheme
 
 urlpatterns = [
     path("", lambda request: redirect("admin/", permanent=True)),
     path("admin/", admin.site.urls),
     path("baton/", include("baton.urls")),
+    re_path(r'^_nested_admin/', include('nested_admin.urls')),
 ]
 
 

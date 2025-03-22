@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_object_actions",
     "service",
+    # "crispy_forms",
+    # "crispy_bootstrap5",
+    "nested_admin",
     "baton.autodiscover",
 ]
 
@@ -58,7 +61,9 @@ ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            "templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -142,6 +147,9 @@ BATON = {
     # 'CHANGELIST_FILTERS_FORM': True,
 }
 
-DJANGO_SUPERUSER_USERNAME="ilkadam"
-DJANGO_SUPERUSER_PASSWORD="ilkadam"
-DJANGO_SUPERUSER_EMAIL="info@ilkadam.com.tr"
+DJANGO_SUPERUSER_USERNAME = "ilkadam"
+DJANGO_SUPERUSER_PASSWORD = "ilkadam"
+DJANGO_SUPERUSER_EMAIL = "info@ilkadam.com.tr"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
