@@ -56,11 +56,11 @@ const createWindow = () => {
   });
 
   splashWindow.loadFile(path.join(__dirname, 'splash.html'));
-  splashWindow.once('ready-to-show', function () {
+  splashWindow.once('ready-to-show', () => {
     splashWindow.show();
     updateElectronApp();
     startDjangoServer();
-    shell.openExternal('https://ilkadam.com.tr')
+    shell.openExternal('https://ilkadam.com.tr');
   });
 
   // Create the browser window.
