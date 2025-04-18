@@ -1,0 +1,28 @@
+{
+  "parser"  : "babel-eslint",
+  "extends" : [
+    "standard"
+  ],
+  "plugins" : [
+    "flow-vars"
+  ],
+  "env"     : {
+    "browser" : true
+  },
+  "globals" : {
+    "Baton": "readonly",
+    "jQuery": "readonly",
+    "$": "readonly"
+  },
+  "rules": {
+    "no-unused-vars": "error",
+    "no-console": "error",
+    "space-before-function-paren": "never",
+    "comma-dangle": [2, "only-multiline"],
+    "react/react-in-jsx-scope": "off",
+    "array-bracket-newline": "off",
+    "object-curly-newline": "off",
+    "array-element-newline": "off",
+    "object-property-newline": "off"
+  }
+}
